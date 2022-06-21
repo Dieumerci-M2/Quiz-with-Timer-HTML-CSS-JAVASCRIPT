@@ -1,16 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 *{
     margin : 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Inter, sens-serif;
 }
 body{
-    background-color: ;
+    background-color:#67E8F9;
 }
 
-section{
-  margin: 20% 35%;
+.header {
+  margin: 8% 35%;
   background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
-#log{
-   
+.Entete{
+  text-align: center; 
+  padding-top: 20px;
+}
+.titre1{
+    margin-top: 30px;
+}
+.paralog{
+    margin: 30px 7%;
+    text-align: center;
+    
+}
+.formlog{
+    margin-top: 70px;
+    margin-left: 30px ;
+    margin-right: 30px;
+}
+.formlog input{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 320px;
+    height: 35px;
+}
+.btnlog{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    
+}
+.btnlog button{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    background-color: green;
+    }
+    
+.btnlog button:hover {
+        background-color: rgba(118, 166, 28, 0.955);
+    }
+    
+.btnlog button:active {
+        box-shadow: inset -2px -2px 3px rgba(91, 130, 49, 0.933),
+                    inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.warning{
+    display: none;
+    font-size: small;
+    color: red;
+    padding-bottom: 20px;
+}
+.niveauExt{
+    background-color: rgb(227, 227, 223);
+    height: 8px;
+    width: 310px;
+    border-radius: 10px;
+}
+.container{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: medium;
+    
+}
+.mbrquestion{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    
+}
+.globalgame{
+    padding: 3%;
+}
+.niveauExt .niveaufull{
+    display: none;
+    border: 1 solid green;
+    background-color: green;
+    height: 8px;
+    width: 310px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+}
+.text div{
+    border: 1px solid rgb(224, 217, 207);
+    margin: 30px 0px;
+    height: 40px;
+    padding-top: 8px;
+    
+}
+.text input{
+    padding: 20px;
+}
+.btnfoot{
+    display: flex;
+    justify-content: space-between;
+}
+.btnfoot .btngameleft{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    background-color: orange;
+}
+.btnfoot .btngameright{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    background-color: rgb(0, 221, 255)
 }

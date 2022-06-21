@@ -6,26 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login GDA</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
     </style>
 </head>
 <body>
-    <main id="log">
+    <main class="header log">
         <section>
-            <div>
-                <h1>JavaScript Quiz</h1>
-                <p>Évaluez vos connaissances en JavaSript en répondant aux questions que nous avons spécialement sélectionnées pour vous C'est fun et c'est gratuit.</p>
+            <div class="Entete">
+                <h1 class="titre1">JavaScript Quiz</h1>
+                <div class="paralog">
+                    <p> Évaluez vos connaissances en JavaSript en
+                    répondant aux questions que nous avons
+                    spécialement sélectionnées pour vous 
+                    C'est fun et c'est gratuit. </p>
+                </div>
             </div>
-            <form>
+            <form class="formlog">
                 <h6>  Nom  </h6>
                 <input/>
+                <div class="warning">
+                    <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
+                </div>
                 <h6>  E-mail   </h6>
                 <input/>
+                <div class="warning">
+                    <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
+                </div>
             </form>
-            <button type ="submit">Commencer</button>
+            <div class = "btnlog">
+                <button type ="submit" id="valider">Commencer</button>
+            </div>
+           
         </section> 
     </main>
+    <script src="app.js"></script>
 </body>
 </html>

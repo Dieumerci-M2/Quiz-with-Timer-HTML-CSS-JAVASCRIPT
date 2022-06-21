@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game</title>
 </head>
 <body>
-    
+    <main class="header game">
+        <section>
+            <div class="container">
+                <h6>Quel est le type d'un fichier JavaScript?</h6>
+            </div>
+            <div class="mbrquestion">
+                <h6><span id="leftnumber"><span>Question</span><span id="leftNumber">1</span><span id="bar">/</span><span id="rigthNumber">15</span></h6>
+                <h6 id="timer">60</h6>
+            </div>
+            <div class="niveauExt">
+                <div class="niveaufull">
+                </div>
+            </div>
+            <form class="text">
+                <div><input type="radio" name="question1" value="">.jy</div>
+                <div><input type="radio" name="question1" value="">.jsx</div>
+                <div><input type="radio" name="question1" value="">.js</div>
+                <div><input type="radio" name="question1" value="">.jar</div>
+            </form>
+            <div class="btnfoot">
+                <button type="submit" class="btngameleft">Quittez</button>
+                <button type="submit" class="btngameright">Suivant</button>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
