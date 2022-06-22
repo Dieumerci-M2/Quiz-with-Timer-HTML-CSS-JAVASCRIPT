@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.6.96/css/materialdesignicons.min.css">
     <title>Game</title>
 </head>
 <body>
-    <main class="header game">
-        <section>
+    <main>
+        <section class="header log">
+            <div class="Entete">
+                <h1 class="titre1">JavaScript Quiz</h1>
+                <div class="paralog">
+                    <p> Évaluez vos connaissances en JavaSript en
+                    répondant aux questions que nous avons
+                    spécialement sélectionnées pour vous 
+                    C'est fun et c'est gratuit. </p>
+                </div>
+            </div>
+            <form class="formlog">
+                <h6>  Nom  </h6>
+                <input/>
+                <div class="warning">
+                    <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
+                </div>
+                <h6>  E-mail   </h6>
+                <input/>
+                <div class="warning">
+                    <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
+                </div>
+            </form>
+            <div class = "btn log">
+                <button type ="submit" id="valider">Commencer</button>
+            </div>
+           
+        </section> 
+        <section class="header game">
             <div class="container">
                 <h6>Quel est le type d'un fichier JavaScript?</h6>
             </div>
             <div class="mbrquestion">
-                <h6><span id="leftnumber"><span>Question</span><span id="leftNumber">1</span><span id="bar">/</span><span id="rigthNumber">15</span></h6>
-                <h6 id="timer">60</h6>
+                <span id="leftnumber">Question</span>
+                <span id="leftNumber">1</span><span id="bar">/</span>
+                <span id="rigthNumber">15</span>
+                <span id="timer">60</span>
             </div>
             <div class="niveauExt">
                 <div class="niveaufull">
@@ -27,9 +57,28 @@
                 <div><input type="radio" name="question1" value="">.js</div>
                 <div><input type="radio" name="question1" value="">.jar</div>
             </form>
-            <div class="btnfoot">
+            <div class="btn foot">
                 <button type="submit" class="btngameleft">Quittez</button>
                 <button type="submit" class="btngameright">Suivant</button>
+            </div>
+        </section>
+        <section class="header output">
+            <div class="structureOutput">
+                <div class="EnteteOutput">
+                     <h1>Joseph</h1>
+                </div>
+                <div class="ShowEmailOutput">
+                    <h3>Joseph@kin.com</h3>
+                </div>
+                <div class="ShowCheckPositive">
+                    <span class="mdi mdi-check-circle-outline" id="result_symbole"></span>
+                </div>
+                <div class="ShowResult">
+                    <span>14/15</span>
+                </div>
+                <div class="btn returnBack">
+                    <button type ="submit" id="accueil">Accueil</button>
+                </div>
             </div>
         </section>
     </main>

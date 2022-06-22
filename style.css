@@ -12,9 +12,19 @@ body{
 
 .header {
   margin: 8% 35%;
+  padding: 20px;
   background-color: white;
   border: 1px solid white;
   border-radius: 5px;
+}
+.header.log{
+    display: none;
+}
+.header.game{
+    display: none;
+}
+.header.output{
+    display: none;
 }
 .Entete{
   text-align: center; 
@@ -39,28 +49,30 @@ body{
     width: 320px;
     height: 35px;
 }
-.btnlog{
-    text-align: center;
+.btn button {
     margin-top: 30px;
     margin-bottom: 50px;
-    
-}
-.btnlog button{
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
     font-size: 1rem;
     text-align: center;
-    color: #fff;
+    
+}
+.btn.log{
+    text-align: center;
+}
+.btn.log button{
+    color: white;
     text-shadow: 1px 1px 1px #000;
     background-color: green;
     }
     
-.btnlog button:hover {
+.btn.log button:hover {
         background-color: rgba(118, 166, 28, 0.955);
     }
     
-.btnlog button:active {
+.btn.log button:active {
         box-shadow: inset -2px -2px 3px rgba(91, 130, 49, 0.933),
                     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
@@ -113,11 +125,11 @@ body{
 .text input{
     padding: 20px;
 }
-.btnfoot{
+.btn.foot{
     display: flex;
     justify-content: space-between;
 }
-.btnfoot .btngameleft{
+.btn.foot .btngameleft{
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -127,13 +139,32 @@ body{
     text-shadow: 1px 1px 1px #000;
     background-color: orange;
 }
-.btnfoot .btngameright{
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
+.btn.foot .btngameright{
+   
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     background-color: rgb(0, 221, 255)
+}
+.EnteteOutput{
+    margin-top: 50px;
+}
+
+.ShowCheckPositive span{
+    font-size: 8rem;
+    color: green;
+}
+.structureOutput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    
+}
+.btn.returnBack button{
+    color : white;
+    background-color: rgba(0, 145, 255, 0.771);
+    width: 150px;
+    margin-bottom: 50px;
+    
 }
