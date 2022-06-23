@@ -22,40 +22,42 @@
             </div>
             <form class="formlog">
                 <h6>  Nom  </h6>
-                <input/>
+                <input id="nom"/>
                 <div class="warning">
                     <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
                 </div>
                 <h6>  E-mail   </h6>
-                <input/>
+                <input id="email"/>
                 <div class="warning">
                     <h6>N'oublez pas de renseigner votre nom avant de commencer le Quiz.</h6>
                 </div>
             </form>
             <div class = "btn log">
-                <button type ="submit" id="valider">Commencer</button>
+                <button type ="button" id="valider">Commencer</button>
             </div>
-           
         </section> 
         <section class="header game">
             <div class="container">
                 <h6>Quel est le type d'un fichier JavaScript?</h6>
             </div>
             <div class="mbrquestion">
-                <span id="leftnumber">Question</span>
-                <span id="leftNumber">1</span><span id="bar">/</span>
-                <span id="rigthNumber">15</span>
+                <div><span >Question</span>
+                    <span id="leftNumber">1</span><span id="bar">/</span>
+                    <span id="rightNumber">15</span>
+                </div>
+                <div>
                 <span id="timer">60</span>
+                </div>
             </div>
             <div class="niveauExt">
                 <div class="niveaufull">
                 </div>
             </div>
             <form class="text">
-                <div><input type="radio" name="question1" value="">.jy</div>
-                <div><input type="radio" name="question1" value="">.jsx</div>
-                <div><input type="radio" name="question1" value="">.js</div>
-                <div><input type="radio" name="question1" value="">.jar</div>
+                <div id="questionOne"><input type="radio" name="question1" value="">.jy</div>
+                <div id="questionTwo"><input type="radio" name="question1" value="">.jsx</div>
+                <div id="questionTree"><input type="radio" name="question1" value="">.js</div>
+                <div id="questionFour"><input type="radio" name="question1" value="">.jar</div>
             </form>
             <div class="btn foot">
                 <button type="submit" class="btngameleft">Quittez</button>

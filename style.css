@@ -4,7 +4,7 @@
     margin : 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Inter, sens-serif;
+    font-family: 'Inter', sans-serif;
 }
 body{
     background-color:#67E8F9;
@@ -20,9 +20,9 @@ body{
 .header.log{
     display: none;
 }
-.header.game{
+/* .header.game{
     display: none;
-}
+} */
 .header.output{
     display: none;
 }
@@ -139,11 +139,19 @@ body{
     text-shadow: 1px 1px 1px #000;
     background-color: orange;
 }
+.btn.foot .btngameleft:hover{
+    background-color: rgba(231, 194, 127, 0.844);
+    border: 1px solid white;
+}
 .btn.foot .btngameright{
    
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     background-color: rgb(0, 221, 255)
+}
+.btn.foot .btngameright:hover{
+    background-color: rgba(163, 214, 222, 0.793) ;
+    border : 1px solid white;
 }
 .EnteteOutput{
     margin-top: 50px;
