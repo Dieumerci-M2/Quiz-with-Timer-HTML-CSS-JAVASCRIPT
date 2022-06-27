@@ -16,7 +16,7 @@ const email = document.querySelector('.formlog #email')
 
 const question = document.querySelector('.container h6')
 const mbrQuestion = document.querySelector('.mbrquestion')
-const mbrQuestionLeft = document.querySelector('.mbrquestion div #leftNumber')
+const mbrQuestionLeft = document.querySelector('.mbrquestion .leftNumber')
 const mbrQuestionRight = document.querySelector('.mbrquestion div #rightNumber')
 const mbrQuestionTimer = document.querySelector('.mbrquestion div #timer')
 const niveauExt = document.querySelector('.niveauExt')
@@ -24,78 +24,36 @@ let niveauFull = document.querySelector('.niveaufull')
 let listQuestion = document.querySelector('.text div input')
 const btnGameLeft = document.querySelector('.btngameleft')
 const btnGameRight = document.querySelector('.btn.foot .btngameright')
+const labelOfQuestion = document.querySelectorAll('.text span')
+let stock = -1;
 
 // SELECTION DES ELEMENTS DE LA SECTION OUTPUT
 
 const resultNom = document.querySelector('.EnteteOutput h1')
 const resultEmail = document.querySelector('.ShowEmailOutput h3')
 let showcheck = document.querySelector('.ShowCheckPositive')
-let showresult = document.querySelector('.ShowResult span')
+let showresult = document.querySelector('.ShowResult #resultNumber')
 const returnBack = document.querySelector('.btn.returnBack')
-
+function Question(question="", answer=[""]) {
+   this.question = question;
+   this.answer = answer;
+}
 const questionList = [
-   {
-      question: `Quel est le type d'un fichier javascript?`, 
-      answer:[`.ts`,`.jsx`,`.js`,`jar`]
-    
-   },
-   {
-      question: `Quel est le type d'un fichier CSS?`,
-      answer : [`.jsx`,`.js`,`.css`,`html`]
-   },
-   {
-      question : `Quel est le type d'un fichier HTML?`,
-      answer : [`.jsx`,`.js`,`.css`,`.html`]
-   },
-   {
-      question: `Parmis ces langages, lequel est utiliser à la fois en Front et en Backend?`,
-      answer : [`HTML`,`CSS`,`JAVASCRIPT`,`PHP`]
-   },
-   {
-      question: `Quel sustème d'exploitation est plus utiliser dans le monde?`,
-      answer : [`Ubuntu`,`MacOs`,`Debian`,`Windows10`]
-   },
-   {
-      question: `Quel Framework JavaScript est plus utiliser en 2022?`,
-      answer : [`Angular`,`Vue`,`React`, `Ember`]
-   },
-   {
-      question: `Parmi ces Frameworks, lequel a été conçus par l'équipe Google?`,
-      answer : [`Angular`,`Vue`,`React`,`Ember`]
-   },
-   {
-      question: `Parmi ces Frameworks, lequel a été conçus par l'équipe Facebook?`,
-      answer : [`Angular`,`React`,`Vue`,`Ember`]
-   },
-   {
-      question: `Parmi ces Frameworks, lequel a été conçus par Evan You?`,
-      answer : [`Angular`,`React`,`Vue`,`Ember`]
-   },
-   {
-      question: `Quel est la ville célèbre en présence des grandes enseignes telle que : Google, Apple, facebook etc.`,
-      answer : [`Washingston DC`,`Toronto`,`siliscon Valley`,`Massachusetts`]
-   },
-   {
-      question: `Quel est le nom du PDG de Facebook?`,
-      answer : [`Bill Gate`,`Mark Zuckerberg`,`Elon Musk`,`Andy Jassy`]
-   },
-   {
-      question: `Quel est le langage de programmation le plus utiliser en Machine Learning?`,
-      answer : [`JavaScript`,`Java`,`C++`,`Python`]
-
-   },
-   {
-      question: "Pourquoi on met le script en bas dans la balyse body?",
-      answer1: [`pour qu il soit lu en dernier`,`pour le design`,`pour le style`,`pour la forme`]
-   },
-   {
-      question: `Parmi ces Frameworks, lequel est utiliser en Python web?`,
-      answer : [`Ember`,`Angular`,`Django`,`React`]
-   },
-   {
-      question: `Pour n'est pas avoir 0/15 dans ce Quiz, parmi ces langages de programmation, lequel est votre préféré?`,
-      answer : [`Ruby on Rails`,`Python`,`JavaScript`,`C & C++`]
-   },
+   new Question(`Quel est le type d'un fichier javascript?`, [`.ts`,`.jsx`,`.js`,`jar`]),
+   new Question(`Quel est le type d'un fichier CSS?`, [`.jsx`,`.js`,`.css`,`html`]),
+   new Question(`Quel est le type d'un fichier HTML?`,[`.jsx`,`.js`,`.css`,`.html`]),
+   new Question(`Parmis ces langages, lequel est utiliser à la fois en Front et en Backend?`, [`HTML`,`CSS`,`JAVASCRIPT`,`PHP`]),
+   new Question(`Quel sustème d'exploitation est plus utiliser dans le monde?`,[`Ubuntu`,`MacOs`,`Debian`,`Windows10`]),
+   new Question(`Quel Framework JavaScript est plus utiliser en 2022?`, [`Angular`,`Vue`,`React`, `Ember`]),
+   new Question(`Parmi ces Frameworks, lequel a été conçus par l'équipe Google?`, [`Angular`,`Vue`,`React`,`Ember`]),
+   new Question(`Parmi ces Frameworks, lequel a été conçus par l'équipe Facebook?`, [`Angular`,`React`,`Vue`,`Ember`]),
+   new Question(`Parmi ces Frameworks, lequel a été conçus par Evan You?`, [`Angular`,`React`,`Vue`,`Ember`]),
+   new Question(`Quel est la ville célèbre en présence des grandes enseignes telle que : Google, Apple, facebook etc.`, [`Washingston DC`,`Toronto`,`siliscon Valley`,`Massachusetts`]),
+   new Question(`Quel est le nom du PDG de Facebook?`, [`Bill Gate`,`Mark Zuckerberg`,`Elon Musk`,`Andy Jassy`]),
+   new Question (`Quel est le langage de programmation le plus utiliser en Machine Learning?`, [`JavaScript`,`Java`,`C++`,`Python`]),
+   new Question(`Pourquoi on met le script en bas dans la balyse body?`, [`pour qu il soit lu en dernier`,`pour le design`,`pour le style`,`pour la forme`]),
+   new Question(`Parmi ces Frameworks, lequel est utiliser en Python web?`, [`Ember`,`Angular`,`Django`,`React`]),
+   new Question(`Pour n'est pas avoir 0/15 dans ce Quiz, parmi ces langages de programmation, lequel est votre préféré?`, [`Ruby on Rails`,`Python`,`JavaScript`,`C & C++`])
 ]
 
 //Les Fonctions Utilisers
@@ -127,9 +85,36 @@ const validEmail = (valEmail)=>{
       email.style.border = " 1px solid black";
       return true;
    }
+   
+}
+const goToQuestion = ()=>{
+   
+   if(validName() && validEmail()){
+      mainlog.style.display = 'none';
+      maingame.style.display = 'block';
+      nextQuestion();
+   }else{
+      mainlog.style.display = 'block';
+      maingame.style.display = 'none';
+   }
+}
+//Foction pour le Game
+const nextQuestion = ()=>{
+   stock++;
+   if(stock == 15){
+      mainoutput.style.display = 'block';
+      maingame.style.display = 'none';
+   }else if(stock <= 7){
+      showresult.innerHTML = `<span class="mdi mdi-close-circle-outline" id="result_symbole"></span>` 
+   }
+   mbrQuestionLeft.textContent = stock+1;
+   showresult.textContent = stock;
+   question.textContent = questionList[stock].question;
+   labelOfQuestion.forEach((element, index)=>{
+      element.textContent = questionList[stock].answer[index];
+   })
 
 }
-
 // LES ECOUTEURS
 
 // LES ECOUTEURS POUR LA SECTION LOG
@@ -137,7 +122,7 @@ const validEmail = (valEmail)=>{
 nom.addEventListener('input' , ()=>{
     validName(this)
 })
-email.addEventListener('click', ()=>{
+email.addEventListener('input', ()=>{
    validEmail(this)   
 })
  buttonlog.addEventListener('click', ()=>{
@@ -178,28 +163,13 @@ email.addEventListener('click', ()=>{
  listQuestion.addEventListener('click', ()=>{
     
  })
- questionOne.addEventListener('click',()=>{
-
- })
-
- questionTwo.addEventListener('click', ()=>{
-    niveauFull.style.display = 'block';
- })
-
- questionTree.addEventListener('click', ()=>{
-
- })
-
- questionFour.addEventListener('click', ()=>{
-
- })
 
  btnGameLeft.addEventListener('click', ()=>{
 
  })
 
  btnGameRight.addEventListener('click', ()=>{
-    e.style.background = 'black';
+    nextQuestion();
  })
 
  // LES ECOUTEURS POUR LA SECTION OUTPUT
