@@ -33,13 +33,16 @@ const resultNom = document.querySelector('.EnteteOutput h1')
 const resultEmail = document.querySelector('.ShowEmailOutput h3')
 let showcheck = document.querySelector('.ShowCheckPositive')
 let showresult = document.querySelector('.ShowResult #resultNumber')
-const returnBack = document.querySelector('.btn.returnBack')
+const returnBack = document.querySelector('.btn.returnBack #accueil')
+
+// CONSTRUCTEUR POUR LES QUESTIONNAIRES
+
 function Question(question="", answer=[""]) {
    this.question = question;
    this.answer = answer;
 }
 const questionList = [
-   new Question(`Quel est le type d'un fichier javascript?`, [`.ts`,`.jsx`,`.js`,`jar`]),
+   new Question(`Quel est le type d'un fichier javascript?`, [`.ts`,`.jsx`,`.js`,`.jar`]),
    new Question(`Quel est le type d'un fichier CSS?`, [`.jsx`,`.js`,`.css`,`html`]),
    new Question(`Quel est le type d'un fichier HTML?`,[`.jsx`,`.js`,`.css`,`.html`]),
    new Question(`Parmis ces langages, lequel est utiliser à la fois en Front et en Backend?`, [`HTML`,`CSS`,`JAVASCRIPT`,`PHP`]),
@@ -56,7 +59,9 @@ const questionList = [
    new Question(`Pour n'est pas avoir 0/15 dans ce Quiz, parmi ces langages de programmation, lequel est votre préféré?`, [`Ruby on Rails`,`Python`,`JavaScript`,`C & C++`])
 ]
 
-//Les Fonctions Utilisers
+// LES FONCTIONS UTILISERS
+
+// LA FONCTION POUR VALIDER LE NOM
 
 const validName = (valName)=>{
    let regex = /^([a-z A-Z]{4,50})$/;
@@ -72,6 +77,8 @@ const validName = (valName)=>{
       return true;
    }
 }
+// LA FONCTION POUR VALIDER L'EMAIL
+
 const validEmail = (valEmail)=>{
    let regex = /^([a-zA-Z\._\-0-9]{4,50})@([a-zA-Z0-9]{3,10})\.([a-zA-Z]{2,5})$/;
    let small = email.nextElementSibling;
@@ -87,6 +94,9 @@ const validEmail = (valEmail)=>{
    }
    
 }
+
+// LA FUNCTION POUR MIXER LES DEUX VALIDATIONS
+
 const goToQuestion = ()=>{
    
    if(validName() && validEmail()){
@@ -98,7 +108,9 @@ const goToQuestion = ()=>{
       maingame.style.display = 'none';
    }
 }
-//Foction pour le Game
+
+// LA FUNCTION POUR PARCOURIR LES QUESTIONS DU QUIZ
+
 const nextQuestion = ()=>{
    stock++;
    if(stock == 15){
@@ -115,6 +127,33 @@ const nextQuestion = ()=>{
    })
 
 }
+
+const dropAll = ()=>{
+   mainoutput.style.display = 'block';
+   maingame.style.display = 'none';
+}
+
+
+// LA FONCTION POUR LE TIMER
+
+let timerWidth = 100;
+let startTime = 59;
+function conteur() {
+   if (startTime > 0) {
+      mbrQuestionTimer.textContent = `${startTime}`
+      timerWidth = timerWidth - (100 / 60)
+      niveauFull.style.width = `${timerWidth}%`;
+      startTime--;
+   }else if(startTime==0){
+      question.textContent = questionList[stock].question;
+   }
+}
+// LA FONCTION DE RETOUR A LA PAGE D'ACCUEIL
+
+const returnHome = ()=>{
+   mainoutput.style.display = 'none';
+   mainlog.style.display = 'block';
+}
 // LES ECOUTEURS
 
 // LES ECOUTEURS POUR LA SECTION LOG
@@ -126,46 +165,21 @@ email.addEventListener('input', ()=>{
    validEmail(this)   
 })
  buttonlog.addEventListener('click', ()=>{
-    goToQuestion(this)
+    goToQuestion(this);
+    setInterval(conteur, 1000);
+    niveauFull.style.display = 'block';
+
  })
 
 
  // LES ECOUTEURS POUR LA SECTION GAME
-
- question.addEventListener('click', ()=>{
-   
- })
-
- mbrQuestion.addEventListener('click', ()=>{
-     
- })
-
- mbrQuestionLeft.addEventListener('click',()=>{
-    
- })
-
- mbrQuestionRight.addEventListener('click',()=>{
-    
- })
-
- mbrQuestionTimer.addEventListener('click', ()=>{
-    
- })
-
- niveauExt.addEventListener('click', ()=>{
-    
- })
-
- niveauFull.addEventListener('click', ()=>{
-     
- })
 
  listQuestion.addEventListener('click', ()=>{
     
  })
 
  btnGameLeft.addEventListener('click', ()=>{
-
+   dropAll(this);
  })
 
  btnGameRight.addEventListener('click', ()=>{
@@ -174,24 +188,8 @@ email.addEventListener('input', ()=>{
 
  // LES ECOUTEURS POUR LA SECTION OUTPUT
 
- resultNom.addEventListener('click', ()=>{
-
- })
-
- resultEmail.addEventListener('click', ()=>{
-
- })
-
- showcheck.addEventListener('click', ()=>{
-
- })
-
- showresult.addEventListener('click', ()=>{
-
- })
-
  returnBack.addEventListener('click', ()=>{
-
+   returnHome(this)
  })
 
 
