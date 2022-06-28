@@ -7,7 +7,7 @@
     font-family: 'Inter', sans-serif;
 }
 body{
-    background-image:linear-gradient(45deg,  #85F6B8, #8ED9EB);
+    background-image:linear-gradient(45deg,  #85F6B8, #8ED9EB );
 }
 
 .header {
@@ -83,7 +83,7 @@ body{
     padding-bottom: 20px;
 }
 .niveauExt{
-    background-color: rgb(227, 227, 223);
+    background-color: rgb(195, 195, 189);
     height: 8px;
     width: 310px;
     border-radius: 10px;
