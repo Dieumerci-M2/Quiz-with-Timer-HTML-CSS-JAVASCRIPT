@@ -22,11 +22,15 @@
             </div>
             <form class="formlog">
                 <h6>  Nom  </h6>
-                <input id="nom" placeholder="your name"/>
-                <small></small>
+                <div>
+                    <input id="nom" placeholder="your name"/>
+                    <small></small>
+                </div>
                 <h6>  E-mail   </h6>
-                <input id="email" placeholder="your Email"/>
-                <small></small>
+                <div>
+                    <input id="email" placeholder="your Email"/>
+                    <small></small>
+                </div>
             </form>
             <div class = "btn log">
                 <button type ="submit" id="valider">Commencer</button>
@@ -34,7 +38,7 @@
         </section> 
         <section class="header game">
             <div class="container">
-                <h6>Quel est le type d'un fichier JavaScript?</h6>
+                <h4>Quel est le type d'un fichier JavaScript?</h4>
             </div>
             <div class="mbrquestion">
                 <div><span >Question</span>
@@ -50,10 +54,10 @@
                 </div>
             </div>
             <form class="text">
-                <div class="answer"><input type="radio" name="question1" value=""><span>.jy</span></div>
-                <div class="answer"><input type="radio" name="question1" value=""><span>.jsx</span></div>
-                <div class="answer"><input type="radio" name="question1" value=""><span>.js</span></div>
-                <div class="answer"><input type="radio" name="question1" value=""><span></span></div>
+                <label class="answer"><input type="radio" name="question1" value=""><span></span></label>
+                <label class="answer"><input type="radio" name="question1" value=""><span></span></label>
+                <label class="answer"><input type="radio" name="question1" value=""><span></span></label>
+                <label class="answer"><input type="radio" name="question1" value=""><span></span></label>
             </form>
             <div class="btn foot">
                 <button type="submit" class="btngameleft">Quittez</button>
@@ -69,7 +73,8 @@
                     <h3>Joseph@kin.com</h3>
                 </div>
                 <div class="ShowCheckPositive">
-                    <span id="result_symbole"></span>
+                    <img src="./assets/images/bx-check.svg" alt="">
+                    <img src="./assets/images/bx-x.svg" alt="">
                 </div>
                 <div class="ShowResult">
                     <span id="resultNumber"></span><span>/15</span>

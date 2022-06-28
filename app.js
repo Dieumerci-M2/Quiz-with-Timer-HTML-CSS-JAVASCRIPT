@@ -14,7 +14,7 @@ const email = document.querySelector('.formlog #email')
 
 // SELECTION DES ELEMENTS DE LA SECTION GAME
 
-const question = document.querySelector('.container h6')
+const question = document.querySelector('.container h4')
 const mbrQuestion = document.querySelector('.mbrquestion')
 const mbrQuestionLeft = document.querySelector('.mbrquestion .leftNumber')
 const mbrQuestionRight = document.querySelector('.mbrquestion div #rightNumber')
@@ -32,7 +32,8 @@ let score = 0;
 
 const resultNom = document.querySelector('.EnteteOutput h1')
 const resultEmail = document.querySelector('.ShowEmailOutput h3')
-let showcheck = document.querySelector('.ShowCheckPositive #result_symbole')
+const showcheckSucces = document.querySelector('.ShowCheckPositive img:nth-child(1)')
+const showcheckFalse = document.querySelector('.ShowCheckPositive img:nth-child(2)')
 let showresult = document.querySelector('.ShowResult #resultNumber')
 const returnBack = document.querySelector('.btn.returnBack #accueil')
 
@@ -118,7 +119,9 @@ const nextQuestion = ()=>{
    if(stock == 15){
       mainoutput.style.display = 'block';
       maingame.style.display = 'none';
-      
+      resultNom.textContent = nom.value;
+      resultEmail.textContent = email.value;
+      showCheckingSuccess(this);
    }
    mbrQuestionLeft.textContent = stock+1;
    showresult.textContent = score;
@@ -137,16 +140,18 @@ const nextQuestion = ()=>{
 }
 
 const showCheckingSuccess = ()=>{
-   if(score <= 7){
-      showcheck.innerHTML = `<span class="mdi mdi-close-circle-outline" ></span>` ;
-}else{
-   showcheck.innerHTML = `<span class=class="mdi mdi-check-circle-outline" ></span>` ;
+   if(score < 8){
+      showcheckSucces.style.display = 'none';
+}else if(score >=8 ){
+      showcheckFalse.style.display = 'none';
 }
 }
 
 const dropAll = ()=>{
    mainoutput.style.display = 'block';
    maingame.style.display = `none`;
+   resultNom.textContent = nom.value;
+   resultEmail.textContent = email.value;
 }
 
 
@@ -195,6 +200,7 @@ email.addEventListener('input', ()=>{
 
  btnGameLeft.addEventListener('click', ()=>{
    dropAll(this);
+   showCheckingSuccess(this);
  })
 
  btnGameRight.addEventListener('click', ()=>{
@@ -207,7 +213,6 @@ email.addEventListener('input', ()=>{
 
  returnBack.addEventListener('click', ()=>{
    returnHome(this);
-   showCheckingSuccess(this);
    location.reload();
  })
 
