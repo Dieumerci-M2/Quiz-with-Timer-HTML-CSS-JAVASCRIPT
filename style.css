@@ -8,14 +8,23 @@
 }
 body{
     background-image:linear-gradient(45deg,  #85F6B8, #8ED9EB );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .header {
-  margin: 8% 35%;
+  margin: 8vh auto;
   padding: 20px;
   background-color: white;
   border: 1px solid white;
   border-radius: 5px;
+  min-width: 406.28px;
+  max-width: 406.28px;
+  max-height: 557px;
+  min-height: 557px;
+  height: auto;
 }
 /* .header.log{
     display: none;
@@ -29,27 +38,41 @@ body{
 .Entete{
   text-align: center; 
   padding-top: 20px;
+  color: rgba(0, 0, 0, 0.713);
 }
 .titre1{
     margin-top: 30px;
 }
 .paralog{
-    margin: 30px 2%;
+    margin: 30px 4.5%;
     text-align: center;
+    color: rgba(0, 0, 0, 0.713);
     
 }
 .formlog{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  gap :10px;
 }
 .formlog input{
     margin-top: 15px;
-    /* margin-bottom: 20px; */
-    width: 340px;
+    width: 100%;
     height: 35px;
+}
+h4{
+    color: rgba(0, 0, 0, 0.713);
+}
+h6{
+    margin-top: 10px;
 }
 small{
     font-size: 9px;
+}
+.answer:hover{
+    border: 1px solid green;
+    box-shadow: 2px 2px -5px green;
+    transition: all 0.3s ease;
 }
 .btn button {
     margin-top: 30px;
@@ -67,11 +90,11 @@ small{
 .btn.log button{
     color: white;
     text-shadow: 1px 1px 1px #000;
-    background-color: rgb(43, 109, 30);
+    background-color: rgba(43, 109, 30, 0.748);
     }
     
 .btn.log button:hover {
-        background-color: rgba(118, 166, 28, 0.955);
+        background-color: rgba(118, 166, 28, 0.727);
     }
     
 .btn.log button:active {
@@ -102,7 +125,7 @@ small{
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
-
+    color: rgba(0, 0, 0, 0.713);
     
 }
 .globalgame{
@@ -123,7 +146,7 @@ small{
     flex-direction: column;
     justify-content: center;
     margin-top: 20px 0px;
-    gap: 15px;
+    gap: 25px;
 }
 .text label{
     border: 1px solid rgb(224, 217, 207);
@@ -139,8 +162,10 @@ small{
 }
 
 .btn.foot{
+
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 .btn.foot .btngameleft{
     border: 0;
@@ -203,3 +228,4 @@ small{
     border-radius: 50%;
     width: 10rem;
 }
+

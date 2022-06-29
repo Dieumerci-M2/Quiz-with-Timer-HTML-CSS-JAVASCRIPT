@@ -59,7 +59,7 @@ const questionList = [
    new Question (`Quel est le langage de programmation le plus utiliser en Machine Learning?`, [`JavaScript`,`Java`,`C++`,`Python`],3),
    new Question(`Pourquoi on met le script en bas dans la balyse body?`, [`pour qu il soit lu en dernier`,`pour le design`,`pour le style`,`pour la forme`]),
    new Question(`Parmi ces Frameworks, lequel est utiliser en Python web?`, [`Ember`,`Angular`,`Django`,`React`]),
-   new Question(`Pour n'est pas avoir 0/15 dans ce Quiz, parmi ces langages de programmation, lequel est votre préféré?`, [`Ruby on Rails`,`Python`,`JavaScript`,`C & C++`],1)
+   new Question(`Quelle est la syntaxe utiliser pour déclarer une fonction en JavaScript?`, [`define`,`function`,`def`,`fonction`],1)
 ]
 
 // LES FONCTIONS UTILISERS
@@ -72,7 +72,8 @@ const validName = (valName)=>{
    if(!regex.test(nom.value)){
       small.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ."
       small.style.color = "red";
-      nom.style.border = " 1px solid rgba(255, 56, 56, 1)"
+      nom.style.border = " 1px solid rgba(255, 56, 56, 1)";
+      nom.style.boxShadow = '5px 5px -5px -2px red';
    }else{
       nom.style.color = "black";
       small.textContent = "";
@@ -88,7 +89,8 @@ const validEmail = (valEmail)=>{
    if(!regex.test(email.value)){
       small.textContent = "N’oubliez pas de renseigner votre Email avant de commencer le Quiz."
       small.style.color = "red";
-      email.style.border = " 1px solid rgba(255, 56, 56, 1)"
+      email.style.border = " 1px solid rgba(255, 56, 56, 1)";
+      email.style.boxShadow = '5px 5px -5px -2px red';
    }else{
       email.style.color = "black";
       small.textContent = "";
