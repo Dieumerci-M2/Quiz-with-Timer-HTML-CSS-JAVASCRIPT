@@ -58,8 +58,8 @@ const questionList = [
    new Question(`Quel est la ville célèbre en présence des grandes enseignes telle que : Google, Apple, facebook etc.`, [`Washingston DC`,`Toronto`,`siliscon Valley`,`Massachusetts`],2),
    new Question(`Quel est le nom du PDG de Facebook?`, [`Bill Gate`,`Mark Zuckerberg`,`Elon Musk`,`Andy Jassy`],1),
    new Question (`Quel est le langage de programmation le plus utiliser en Machine Learning?`, [`JavaScript`,`Java`,`C++`,`Python`],3),
-   new Question(`Pourquoi on met le script en bas dans la balyse body?`, [`pour qu il soit lu en dernier`,`pour le design`,`pour le style`,`pour la forme`]),
-   new Question(`Parmi ces Frameworks, lequel est utiliser en Python web?`, [`Ember`,`Angular`,`Django`,`React`]),
+   new Question(`Pourquoi on met le script en bas dans la balyse body?`, [`pour qu il soit lu en dernier`,`pour le design`,`pour le style`,`pour la forme`],0),
+   new Question(`Parmi ces Frameworks, lequel est utiliser en Python web?`, [`Ember`,`Angular`,`Django`,`React`],2),
    new Question(`Quelle est la syntaxe utiliser pour déclarer une fonction en JavaScript?`, [`define`,`function`,`def`,`fonction`],1)
 ]
 
@@ -127,6 +127,7 @@ const nextQuestion = ()=>{
       resultNom.textContent = nom.value;
       resultEmail.textContent = email.value;
       showCheckingSuccess(this);
+      monScore(this);
    }
    mbrQuestionLeft.textContent = stock+1;
    showresult.textContent = score;
@@ -134,19 +135,6 @@ const nextQuestion = ()=>{
    labelOfQuestion.forEach((element, index)=>{
       element.textContent = questionList[stock].answer[index];
    })
-   listQuestion.forEach((element, index)=>{
-      if(element.checked){
-       
-      }
-      else if(element.checked && questionList[stock-1].correct == index ){
-         score++; 
-        
-
-      }
-      element.checked = false;
-   })
-
-
 }
 
 const showCheckingSuccess = ()=>{
@@ -198,6 +186,19 @@ const ConfirmNexQuestion = ()=>{
       } 
    }
 }
+// FONCTION POUR L'INCREMANTATION DU SCORE
+
+const monScore = ()=>{
+
+   listQuestion.forEach((element, index)=>{
+  
+   if(element.checked && questionList[stock-1].correct == index ){
+         score++; 
+         console.log(score);
+      }
+      element.checked = false;
+   })
+}
  
 // LA FONCTION DE RETOUR A LA PAGE D'ACCUEIL
 
@@ -238,6 +239,7 @@ email.addEventListener('input', ()=>{
  btnGameRight.addEventListener('click', ()=>{
    ConfirmNexQuestion();
    desactiveBtn();
+   monScore(this);
     
  })
 

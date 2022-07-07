@@ -26,9 +26,6 @@ body{
   min-height: 557px;
   height: auto;
 }
-/* .header.log{
-    display: none;
-} */
 .header.game{
     display: none;
 }
@@ -110,7 +107,7 @@ small{
 .niveauExt{
     background-color: rgb(195, 195, 189);
     height: 8px;
-    width: 310px;
+    width: 362px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -136,7 +133,7 @@ small{
     border: 1px solid green;
     background-color: green;
     height: 8px;
-    width: 310px;
+    width: 362px;
     border-radius: 10px;
     margin-bottom: 40px;
 
@@ -176,6 +173,7 @@ small{
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     background-color: orange;
+    width : 160px;
 }
 .btn.foot .btngameleft:hover{
     background-color: rgba(231, 194, 127, 0.844);
@@ -187,6 +185,7 @@ small{
     text-shadow: 1px 1px 1px #000;
     background-color:  rgba(127, 214, 228, 0.415);
     cursor:not-allowed;
+    width: 160px;
 }
 .btn.foot .btngameright:hover{
     background-color: rgba(163, 214, 222, 0.793) ;
