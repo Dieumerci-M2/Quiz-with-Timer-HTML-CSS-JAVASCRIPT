@@ -21,6 +21,7 @@ const mbrQuestionRight = document.querySelector('.mbrquestion div #rightNumber')
 const mbrQuestionTimer = document.querySelector('.mbrquestion div #timer')
 const niveauExt = document.querySelector('.niveauExt')
 let niveauFull = document.querySelector('.niveaufull')
+const blocAnswer = document.querySelector('.text')
 let listQuestion = document.querySelectorAll('.text input')
 const btnGameLeft = document.querySelector('.btngameleft')
 const btnGameRight = document.querySelector('.btn.foot .btngameright')
@@ -66,10 +67,11 @@ const questionList = [
 
 // LA FONCTION POUR VALIDER LE NOM
 
-const validName = (valName)=>{
+const validName = ()=>{
    let regex = /^([a-z A-Z]{4,50})$/;
    let small = nom.nextElementSibling;
-   if(!regex.test(nom.value)){
+   const fullName = nom.value.trim();
+   if(!regex.test(fullName)){
       small.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ."
       small.style.color = "red";
       nom.style.border = " 1px solid rgba(255, 56, 56, 1)";
@@ -81,12 +83,13 @@ const validName = (valName)=>{
       return true;
    }
 }
-// LA FONCTION POUR VALIDER L'EMAIL
+// LA FONCConfirmNexQuestionTION POUR VALIDER L'EMAIL
 
-const validEmail = (valEmail)=>{
+const validEmail = ()=>{
    let regex = /^([a-zA-Z\._\-0-9]{4,50})@([a-zA-Z0-9]{3,10})\.([a-zA-Z]{2,5})$/;
    let small = email.nextElementSibling;
-   if(!regex.test(email.value)){
+   const fullEmail = email.value.trim();
+   if(!regex.test(fullEmail)){
       small.textContent = "N’oubliez pas de renseigner votre Email avant de commencer le Quiz."
       small.style.color = "red";
       email.style.border = " 1px solid rgba(255, 56, 56, 1)";
@@ -132,12 +135,17 @@ const nextQuestion = ()=>{
       element.textContent = questionList[stock].answer[index];
    })
    listQuestion.forEach((element, index)=>{
-      if(element.checked && questionList[stock-1].correct == index ){
+      if(element.checked){
+       
+      }
+      else if(element.checked && questionList[stock-1].correct == index ){
          score++; 
+        
 
       }
       element.checked = false;
    })
+
 
 }
 
@@ -174,6 +182,23 @@ function conteur() {
       timerWidth = 100;
    }
 }
+// Les FONCTIONS POUR DESACTIVER LE BOUTON NEXTQUESTION QUAND RIEN N'AS ETAIT FAITES AU NIVEAU DES INPUT
+
+const desactiveBtn = ()=>{
+   btnGameRight.style.backgroundColor = 'rgba(127, 214, 228, 0.415)';
+   btnGameRight.style.cursor = 'not-allowed'; 
+ }
+
+const ConfirmNexQuestion = ()=>{
+   for (let i = 0; i < listQuestion.length; i++) {
+      if (listQuestion[i].checked) {
+         nextQuestion();
+         startTime = 59;
+         timerWidth = 100;
+      } 
+   }
+}
+ 
 // LA FONCTION DE RETOUR A LA PAGE D'ACCUEIL
 
 const returnHome = ()=>{
@@ -200,15 +225,20 @@ email.addEventListener('input', ()=>{
 
  // LES ECOUTEURS POUR LA SECTION GAME
 
+ blocAnswer.addEventListener('click', ()=>{
+   btnGameRight.style.backgroundColor = 'rgb(0, 221, 255)';
+   btnGameRight.style.cursor = 'pointer'; 
+ }) 
+
  btnGameLeft.addEventListener('click', ()=>{
    dropAll(this);
    showCheckingSuccess(this);
  })
 
  btnGameRight.addEventListener('click', ()=>{
-    nextQuestion();
-    startTime = 59;
-    timerWidth = 100;
+   ConfirmNexQuestion();
+   desactiveBtn();
+    
  })
 
  // LES ECOUTEURS POUR LA SECTION OUTPUT
@@ -217,8 +247,3 @@ email.addEventListener('input', ()=>{
    returnHome(this);
    location.reload();
  })
-
-
-
-
-
